@@ -1,0 +1,9 @@
+name: Teleporting
+version: '${project.version}'
+main: com.jack.teleporting.Main
+api-version: 1.16
+authors: [ Jack ]
+description: Plugin to allow teleportation of players.
+commands:
+  tp:
+  tpall:
