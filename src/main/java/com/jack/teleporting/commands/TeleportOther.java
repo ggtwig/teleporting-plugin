@@ -6,10 +6,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Teleport implements CommandExecutor {
+public class TeleportOther implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
         if (!(sender instanceof Player)) {
             sender.sendMessage("Only players can use that command!");
             return true;
@@ -17,13 +16,12 @@ public class Teleport implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (args.length == 0) {
-            player.sendMessage("§cMore arguments needed!");
-        } else if (args.length == 1) {
-            Player target = Bukkit.getPlayer(args[0]);
+        if (args.length == 2 && sender.hasPermission("teleporting.tpother")) {
+            Player playerToSend = Bukkit.getPlayer(args[0]);
+            Player target = Bukkit.getPlayer(args[1]);
 
             try {
-                player.teleport(target.getLocation());
+                playerToSend.teleport(target.getLocation());
             } catch (NullPointerException e) {
                 player.sendMessage("§cPlayer does not exist!");
             }

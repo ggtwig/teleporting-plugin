@@ -6,4 +6,16 @@ authors: [ Jack ]
 description: Plugin to allow teleportation of players.
 commands:
   tp:
+    description: teleports the user to the target
+    usage: /<command>
+  tpother:
+    description: teleports selected player to target if the user has sufficient permissions
+    aliases: tpo
+    permission: teleporting.tpother
+    permission-message: §cYou do not have permission to use this!
+    usage: /<command>
   tpall:
+    description: teleports all online players to users position
+    permission: teleporting.tpall
+    permission-message: §cYou do not have permission to use this!
+    usage: /<command>
